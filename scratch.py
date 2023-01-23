@@ -1,30 +1,17 @@
-import os
-
-from selenium.webdriver.firefox.webdriver import WebDriver as FirefoxDriver
+from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
-# Retrieve login credentials from environment variables
-username = os.environ.get("BET365_USERNAME")
-password = os.environ.get("BET365_PASSWORD")
+# Create a new instance of Firefox
+driver = webdriver.Firefox()
 
-# Create a new instance of the Firefox driver
-driver = FirefoxDriver()
-
-# Navigate to the website
+# Navigate to the website you want to scrape
 driver.get("https://br.betano.com/sport/futebol/competicoes/brasil/10004/")
 
-# Provide your login credentials
-username = driver.find_element(By.XPATH, "//input[@name='username']")
-password = driver.find_element(By.XPATH, "//input[@name='password']")
-username.send_keys("YOUR_USERNAME")
-password.send_keys("YOUR_PASSWORD")
+# Wait for the element with xpath 'xpath_selector' to be present on the page
+wait = WebDriverWait(driver, 10)
 
-# Submit the form
-driver.find_element_by_class_name("submit").submit()
-
-# Extract data from the page
-data = driver.find_elements_by_xpath('//div')
-print(data)
-
-# Close the browser
-driver.quit()
+# Closing the popup as soon as it shows
+close_popup = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/section[2]/div[7]/div/div/div[1]/button')))
+close_popup.click()
