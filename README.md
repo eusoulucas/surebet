@@ -1,13 +1,14 @@
 # SUREBET
 
-## *Plan*
+## *Objetivo*
+Pegar dados de aposta de varias casas parra aplicar o método surebet.
 
-#### Sites escolhidos
-Bet365
+#### SITES ONDE O PROGRAMA OPERA (ATÉ O MOMENTO)
 Betano
-Betfair
+SportingBet
+Betfair (em desenvolvimeto)
 
 #### Ferramentas
-##### ChatGPT3
-##### Python
-###### Selenium  
+- ChatGPT3
+- Python
+- Selenium  
