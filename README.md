@@ -1,7 +1,8 @@
 # SUREBET
 
 ## *Objetivo*
-Pegar dados de aposta de varias casas parra aplicar o método surebet.
+- Pegar dados de aposta de varias casas parra aplicar o método surebet.
+- Melhorar habilidade com biblioteca "selenium"
 
 #### SITES ONDE O PROGRAMA OPERA (ATÉ O MOMENTO)
 - Betano
