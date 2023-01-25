@@ -72,7 +72,7 @@ def sporting_bet(url):
     wait = WebDriverWait(driver, 10)
 
     # O SITE ATENDE BEM AO USO DE CSS_SELECTOR COMO LOCALIZADOR
-    # Closing the popup as soon as it shows]
+    # Closing the popup as soon as it shows
     sleep(5)
     close_popup = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'span.theme-ex')))
     close_popup.click()
