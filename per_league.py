@@ -5,55 +5,51 @@ from selenium.webdriver.support import expected_conditions as EC
 
 import pandas as pd
 
-# Create a new instance of Firefox
-driver = webdriver.Firefox()
+def betano(url):
+    # Navigate to the website you want to scrape
+    driver.get(url)
+    #driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
-# Navigate to the website you want to scrape
-driver.get("https://br.betano.com/sport/futebol/competicoes/brasil/10004/")
+    # Wait for the element with xpath 'xpath_selector' to be present on the page
+    wait = WebDriverWait(driver, 10)
 
-# Wait for the element with xpath 'xpath_selector' to be present on the page
-wait = WebDriverWait(driver, 10)
-driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    # Closing the popup as soon as it shows
+    close_popup = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/section[2]/div[6]/div/div/div[1]/button')))#'/html/body/div[1]/div/section[2]/div[7]/div/div/div[1]/button')))
+    close_popup.click()
+    
+    elements = driver.find_elements(By.CLASS_NAME, 'events-list__grid__event') # ta buscando apenas o texto do header
 
-# Closing the popup as soon as it shows
-close_popup = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/section[2]/div[7]/div/div/div[1]/button')))
-close_popup.click()
+    # Extract the text of the elements
+    infos = [element.text for element in elements]
+    
+    # Creating the variables
+    df = pd.DataFrame()
+    df_aux = pd.DataFrame()
+    aux = []
+    data = {}
+    dataG = {}
 
-elements = driver.find_elements(By.CLASS_NAME, 'league-block')
-
-# Extract the text of the elements
-infos = [element.text for element in elements]
-
-df = pd.DataFrame()
-df_aux = pd.DataFrame()
-info = []
-aux = []
-data = {}
-dataG = {}
-
-# Print the infos
-for info in infos:
-    aux = info.split('\n')
-    aux.pop(0)
-    try:
-        aux.remove("Em local neutro")
-    except:
-        pass
-    for i in range(0, len(aux), 19):
-        print(str(aux) + "\n")
+    # Print the infos
+    for info in infos:
+        aux = info.split('\n')
+        print(aux)
+        try:
+            aux.remove("Em local neutro")
+        except:
+            pass
         try:    
             data = {
-                "data": aux[i+0],
-                "horario": aux[i+1],
-                "time_casa": aux[i+2],
-                "time_visitante": aux[i+3],
-                "odds_casa": aux[i+5],
-                "odds_empate": aux[i+6],
-                "odds_visitante": aux[i+7],
-                "total de gols+": aux[i+10],
-                "total de gols-": aux[i+12],
-                "ambas marcam sim": aux[i+15],
-                "ambas marcam não": aux[i+17],
+                "data": aux[0],
+                "horario": aux[1],
+                "time_casa": aux[2],
+                "time_visitante": aux[3],
+                "odds_casa": aux[4],
+                "odds_empate": aux[5],
+                "odds_visitante": aux[6],
+                "total de gols+": aux[8],
+                "total de gols-": aux[10],
+                "ambas marcam sim": aux[12],
+                "ambas marcam não": aux[14],
                 }
         except Exception as e:
             print(e)
@@ -61,9 +57,31 @@ for info in infos:
         df_aux = pd.json_normalize(data)
         df = pd.concat([df, df_aux])
 
-# Printando o dataframe
-print(df)
-df.to_csv("dados/jogos_betanoBrasil.csv")
+    # Printando o dataframe
+    print(df)
+    df.to_csv("dados/jogos_betanoBrasil.csv")
+
+def sporting_bet(url):
+    # Navigate to the website you want to scrape
+    driver.get(url)
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+    # Wait for the element with xpath 'xpath_selector' to be present on the page
+    wait = WebDriverWait(driver, 10)
+
+    # O SITE ATENDE BEM AO USO DE CSS_SELECTOR COMO LOCALIZADOR
+    # Closing the popup as soon as it shows
+    close_popup = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'span.theme-ex')))
+    close_popup.click()
+
+# Create a new instance of Firefox
+driver = webdriver.Firefox()
+
+url_one = "https://br.betano.com/sport/futebol/ligas/10016o,193989r,10008o,181895o,16880r,16880o,16901r,16901o,16893r,16887r,16887o,16888o,16882o,16872r,183633r,16894r,17837r,17837o,17407r,200263r/"
+betano(url_one)
+
+url_two = "https://sports.sportingbet.com/pt-br/sports/futebol-4/aposta/brasil-33"
+#sporting_bet(url_two)
 
 # Close the browser
 driver.quit()
