@@ -7,6 +7,11 @@ import pandas as pd
 
 from time import sleep
 
+def close_popup(wait, by, path):
+    # Closing the popup as soon as it shows
+    close_popup = wait.until(EC.presence_of_element_located((by, path)))
+    close_popup.click()
+
 def betano(url):
     # Navigate to the website you want to scrape
     driver.get(url)
@@ -14,10 +19,7 @@ def betano(url):
 
     # Wait for the element with xpath 'xpath_selector' to be present on the page
     wait = WebDriverWait(driver, 10)
-
-    # Closing the popup as soon as it shows
-    close_popup = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/section[2]/div[6]/div/div/div[1]/button')))#'/html/body/div[1]/div/section[2]/div[7]/div/div/div[1]/button')))
-    close_popup.click()
+    close_popup(wait, By.XPATH, '/html/body/div[1]/div/section[2]/div[6]/div/div/div[1]/button')
     
     elements = driver.find_elements(By.CLASS_NAME, 'events-list__grid__event') # ta buscando apenas o texto do header
 
@@ -74,8 +76,7 @@ def sporting_bet(url):
     # O SITE ATENDE BEM AO USO DE CSS_SELECTOR COMO LOCALIZADOR
     # Closing the popup as soon as it shows
     sleep(5)
-    close_popup = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'span.theme-ex')))
-    close_popup.click()
+    close_popup(wait, By.CSS_SELECTOR, 'span.theme-ex')
 
     elements = driver.find_elements(By.CLASS_NAME,'grid-event-wrapper') # ta buscando apenas o texto do header
 
@@ -119,7 +120,7 @@ def sporting_bet(url):
 driver = webdriver.Firefox()
 
 url_one = "https://br.betano.com/sport/futebol/ligas/10016o,193989r,10008o,181895o,16880r,16880o,16901r,16901o,16893r,16887r,16887o,16888o,16882o,16872r,183633r,16894r,17837r,17837o,17407r,200263r/"
-#betano(url_one)
+betano(url_one)
 
 url_two = "https://sports.sportingbet.com/pt-br/sports/futebol-4/aposta/brasil-33"
 sporting_bet(url_two)

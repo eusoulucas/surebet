@@ -1,51 +1,45 @@
 ,time_casa,time_visitante,data_hora,odds_casa,odds_empate,odds_visitante,mais ou menos que,mais
 0,Palmeiras,Flamengo,28/01/2023 16:30,3.00,3.10,2.45,"2,5",1.62
-0,ASA,CSE,Começando em 15 min,1.73,3.20,4.40,"1,5",2.40
-0,Desportiva Alianca Pilarense AL,Cruzeiro Arapiraca AL,Começando em 15 min,3.00,2.90,2.30,"2,5",1.55
-0,CRB,Coruripe,Começando em 45 min,1.32,4.40,8.75,"2,5",1.75
-0,Atlético-BA,Jacuipense,AO VIVO,1º T 24:08,0,1,4.40,1.68
-0,Jacobinense,Bahia,Hoje / 21:30,9.75,5.00,1.26,"2,5",1.93
+0,CSE,AO VIVO,2º T 69:11,0,1.08,7.75,41.00,1.95
+0,CSE,AO VIVO,2º T 69:11,0,1.08,7.75,41.00,1.95
+0,CRB,Coruripe,AO VIVO,Intervalo,1,1,1.72,8.00
+0,Jacobinense,Bahia,AO VIVO,1º T 01:07,0,0,8.25,1.30
 0,Vitória,Doce Mel,Amanhã / 19:15,1.25,5.25,9.25,"2,5",2.00
-0,Volta Redonda,Resende,AO VIVO,1º T 43:51,4,1,31.00,"6,5"
-0,Portuguesa-RJ,Vasco,Hoje / 21:10,6.25,3.50,1.60,"2,5",1.49
+0,Bahia de Feira,Barcelona de Ilhéus,Amanhã / 21:30,1.78,3.10,4.33,"1,5",2.40
+0,Portuguesa-RJ,Vasco,AO VIVO,1º T 20:45,0,1,9.75,1.26
 0,Botafogo,Madureira,Amanhã / 19:30,1.55,4.00,6.00,"2,5",1.71
 0,Fluminense,Boavista,Amanhã / 21:10,1.36,4.80,8.00,"2,5",1.93
-0,Hercílio Luz,Avaí,AO VIVO,1º T 44:35,0,0,3.40,3.10
-0,Figueirense,Chapecoense,Hoje / 21:00,2.40,2.80,2.90,"1,5",2.10
-0,Camboriú,Concórdia,Hoje / 21:00,2.50,2.60,3.00,"1,5",2.00
+0,Figueirense,Chapecoense,AO VIVO,1º T 30:02,0,1,4.60,1.70
 0,Barra-SC,Atlético-SC,Amanhã / 16:30,1.98,2.90,3.75,"1,5",2.30
-0,Ceará,Pacajus,Começando em 15 min,1.21,5.25,12.50,"2,5",1.78
-0,Avenida,Internacional,AO VIVO,1º T 42:56,1,0,2.30,3.10
-0,Grêmio,Brasil de Pelotas,Hoje / 21:30,1.18,6.25,13.50,"2,5",2.05
+0,Joinville,Brusque,Amanhã / 21:00,3.40,2.80,2.15,"1,5",2.15
+0,Criciúma,Marcílio Dias,Amanhã / 21:00,1.75,3.25,4.20,"2,5",1.55
+0,Ceará,Pacajus,AO VIVO,2º T 71:16,3,0,151.00,1.58
 0,Ypiranga-RS,Novo Hamburgo-RS,Amanhã / 19:00,1.83,3.10,4.33,"1,5",2.40
 0,São José-RS,Caxias,Amanhã / 19:00,2.30,2.90,3.10,"2,5",1.52
-0,CRAC,Goiás,AO VIVO,1º T 44:00,1,2,13.50,1.20
-0,Atlético-GO,Anápolis,AO VIVO,1º T 14:21,0,0,1.49,6.00
-0,Goianésia,Grêmio Anápolis,Começando em 15 min,1.87,3.00,4.00,"2,5",1.60
-0,Morrinhos GO,Goiânia EC,Começando em 15 min,2.10,2.95,3.40,"1,5",2.35
-0,Aparecidense,Inhumas,Começando em 45 min,1.55,3.40,5.75,"2,5",1.49
-0,Vila Nova,Iporá,Começando em 45 min,1.44,4.00,6.25,"2,5",1.72
-0,Sousa,Campinense,AO VIVO,1º T 14:03,0,0,2.40,2.85
-0,Treze,Serra Branca-PB,Começando em 45 min,2.00,3.10,3.40,"2,5",1.65
-0,Treze,Serra Branca-PB,Começando em 45 min,2.00,3.10,3.40,"2,5",1.65
-0,Azuriz,São Joseense,AO VIVO,1º T 26:06,0,0,2.25,3.50
-0,FC Cascavel,Cianorte,AO VIVO,1º T 28:16,0,1,6.00,1.44
-0,Maringá,Coritiba,Hoje / 21:30,3.00,3.10,2.20,"2,5",1.55
-0,RB Bragantino,Ferroviária,AO VIVO,1º T 45:02,2,0,1.008,67.00
-0,Ituano,Palmeiras,AO VIVO,1º T 15:05,0,0,4.10,1.90
-0,Santo André,Botafogo-SP,Começando em 45 min,2.25,2.95,3.50,"1,5",2.30
-0,Santos,Água Santa,Hoje / 21:35,1.53,3.80,6.25,"2,5",1.62
+0,Aimoré,Bento Gonçalves-RS,Amanhã / 20:30,2.20,3.10,3.10,"1,5",2.35
+0,Goianésia,Grêmio Anápolis,AO VIVO,2º T 74:56,1,0,1.12,29.00
+0,Morrinhos GO,Goiânia EC,AO VIVO,2º T 69:25,2,0,23.00,"2,5"
+0,Aparecidense,Inhumas,AO VIVO,Intervalo,0,0,2.40,4.50
+0,Aparecidense,Inhumas,AO VIVO,Intervalo,0,0,2.40,4.50
+0,Sampaio Corrêa,Moto Club,Amanhã / 20:15,1.61,3.40,5.00,"2,5",1.60
+0,Treze,Serra Branca-PB,AO VIVO,Intervalo,2,0,1.025,36.00
+0,Queimadense-PB,Botafogo FC PB Joao Pessoa,Amanhã / 20:30,7.25,4.10,1.38,"2,5",1.78
+0,Maringá,Coritiba,AO VIVO,1º T 01:02,0,0,2.95,2.15
+0,Londrina,Operário-PR,Amanhã / 20:00,2.70,3.10,2.40,"2,5",1.53
+0,Santo André,Botafogo-SP,AO VIVO,Intervalo,1,1,2.30,5.25
+0,Santos,Água Santa,Começando em 4 min,1.51,3.90,6.50,"2,5",1.63
 0,São Bento,Inter de Limeira,Amanhã / 15:30,2.40,3.00,3.10,"1,5",2.40
 0,Mirassol,São Bernardo,Amanhã / 19:30,1.98,3.20,3.90,"2,5",1.53
 0,São Paulo,Portuguesa,Amanhã / 21:30,1.38,4.40,8.50,"2,5",1.68
-0,Ponte Preta,Monte Azul,AO VIVO,1º T 43:10,0,0,1.39,12.00
-0,Noroeste,Juventus-SP,AO VIVO,1º T 11:47,0,0,2.35,2.87
-0,Velo Clube,Linense,Começando em 15 min,1.85,3.10,4.20,"1,5",2.40
-0,Comercial FC SP Ribeirao Preto,Portuguesa Santista,Começando em 15 min,3.10,3.00,2.25,"2,5",1.49
-0,Taubaté,Rio Claro,Começando em 15 min,1.93,3.10,4.00,"1,5",2.20
-0,São Caetano,XV de Piracicaba,Começando em 15 min,2.85,2.95,2.40,"2,5",1.49
-0,Audax-SP,Sertãozinho,AO VIVO,1º T 45:08,0,0,2.37,3.75
-0,Audax-SP,Sertãozinho,AO VIVO,1º T 45:08,0,0,2.37,3.75
-0,São José,Grêmio Prudente,Começando em 15 min,2.75,3.00,2.30,"2,5",1.52
-0,Retrô,Náutico,Começando em 15 min,2.20,3.10,2.95,"2,5",1.65
+0,Velo Clube,Linense,AO VIVO,2º T 71:38,1,0,1.14,26.00
+0,Comercial FC SP Ribeirao Preto,Portuguesa Santista,AO VIVO,2º T 67:33,1,1,4.50,3.50
+0,Taubaté,Rio Claro,AO VIVO,2º T 72:16,0,1,14.50,1.25
+0,São Caetano,XV de Piracicaba,AO VIVO,2º T 71:48,1,1,1,1.60
+0,São José,Grêmio Prudente,AO VIVO,2º T 68:06,1,1,1,1.73
+0,Retrô,Náutico,AO VIVO,2º T 68:44,0,1,11.00,1.32
 0,Maguary,Petrolina Social FC,Amanhã / 18:30,1.61,3.50,4.80,"2,5",1.72
+0,Santa Cruz,Caruaru City,Amanhã / 20:00,1.44,3.90,6.25,"2,5",1.80
+0,Potyguar CN,Globo,AO VIVO,2º T 61:59,1,0,1.10,29.00
+0,Porto Vitória,Vitória ES,AO VIVO,2º T 59:50,0,2,41.00,1.015
+0,Estrela Do Norte,Nova Venécia,Amanhã / 20:00,2.80,3.10,2.25,"2,5",1.63
+0,Fortaleza,Sergipe,Amanhã / 20:00,1.15,6.75,18.50,"2,5",2.05

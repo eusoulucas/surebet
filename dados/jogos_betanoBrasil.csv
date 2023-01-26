@@ -1,32 +1,27 @@
 ,data,horario,time_casa,time_visitante,odds_casa,odds_empate,odds_visitante,total de gols+,total de gols-,ambas marcam sim,ambas marcam não
-0,28/01,16:30,Palmeiras,Flamengo,3.25,3.30,2.27,2.25,1.65,1.95,1.80
-0,25/01,15:30,Audax Rio RJ,Nova Iguaçu,2.25,2.95,3.40,2.50,1.47,2.12,1.65
-0,25/01,19:00,Volta Redonda,Resende,1.83,3.25,4.50,2.35,1.53,2.15,1.62
-0,25/01,21:10,Portuguesa-RJ,Vasco da Gama,5.90,3.55,1.60,2.37,1.52,2.42,1.50
-0,26/01,19:30,Botafogo-RJ,Madureira,1.52,3.75,6.50,1.93,1.78,2.02,1.72
-0,26/01,21:10,Fluminense,Boavista-RJ,1.36,4.70,7.80,1.78,1.93,2.15,1.62
-0,28/01,15:30,Nova Iguaçu,Bangu,2.77,2.77,2.77,2.42,1.50,1.98,1.75
-0,25/01,19:00,Bragantino,Ferroviária,1.62,3.55,5.50,2.12,1.65,2.10,1.65
-0,25/01,19:30,Ituano,Palmeiras,4.15,3.20,1.90,2.22,1.60,2.00,1.72
-0,25/01,20:30,Santo André,Botafogo-SP,2.30,2.95,3.25,2.52,1.47,2.12,1.65
-0,25/01,21:35,Santos,Água Santa,1.53,3.75,6.10,2.10,1.65,2.18,1.62
-0,26/01,15:30,EC Sao Bento,Inter de Limeira,2.45,2.95,3.00,2.50,1.47,2.10,1.65
-0,26/01,19:30,Mirassol,São Bernardo,1.98,3.15,3.85,2.27,1.57,2.02,1.70
-0,26/01,21:30,São Paulo,Portuguesa Desportos,1.39,4.20,8.00,2.05,1.70,2.42,1.50
-0,28/01,18:30,Santos,Ferroviária,1.65,3.55,5.30,2.20,1.60,2.18,1.60
-0,28/01,20:00,Bragantino,Santo André,1.45,4.15,6.60,2.05,1.70,2.32,1.55
-0,28/01,20:40,Botafogo-SP,Guarani-SP,2.27,2.95,3.35,2.42,1.50,2.05,1.70
-0,29/01,15:00,Água Santa,Portuguesa Desportos,2.18,3.00,3.45,2.50,1.47,2.15,1.62
-0,29/01,16:00,Inter de Limeira,Ituano,2.95,2.85,2.55,2.60,1.44,2.12,1.65
-0,29/01,16:00,São Bernardo,EC Sao Bento,1.82,3.30,4.45,2.42,1.50,2.25,1.57
-0,29/01,18:30,São Paulo,Corinthians,2.25,3.10,3.50,2.42,1.57,2.02,1.75
-0,28/01,10:30,Cruzeiro,Athletic Club MG,1.35,4.55,8.25,1.93,1.78,2.40,1.50
-0,28/01,16:00,Caldense,Esporte Clube Democrata,1.91,3.40,3.80,2.42,1.50,2.25,1.57
-0,28/01,16:00,Democrata SL,Pouso Alegre MG,2.57,2.92,2.85,2.55,1.45,2.10,1.65
-0,29/01,11:00,Tombense,Atlético-MG,5.90,4.45,1.45,2.12,1.65,2.52,1.47
-0,29/01,18:30,América-MG,Villa Nova AC MG,1.42,4.30,7.10,2.02,1.72,2.37,1.52
-0,25/01,19:00,EC Avenida RS,Internacional,8.50,4.05,1.40,2.02,1.72,2.32,1.55
-0,25/01,21:30,Grêmio,Brasil de Pelotas,1.19,5.90,14.50,1.80,1.90,3.05,1.33
-0,26/01,19:00,Ypiranga-RS,Novo Hamburgo,1.82,3.20,4.60,2.35,1.53,2.15,1.62
-0,26/01,19:00,São José-RS,Caxias,2.27,2.95,3.30,2.42,1.50,2.10,1.65
-0,26/01,20:30,Aimoré,CE Bento Goncalves RS,1.95,3.10,4.05,2.42,1.50,2.18,1.62
+0,28/01,16:30,Palmeiras,Flamengo,Resultado Final,3.25,3.30,Total de Gols Mais/Menos,2.25,1.65,Sim
+0,25/01,21:10,Portuguesa-RJ,Vasco da Gama,AO VIVO,Resultado Final,8.00,1.37,+,-,Ambas equipes Marcam
+0,26/01,19:30,Botafogo-RJ,Madureira,Resultado Final,1.47,3.90,Total de Gols Mais/Menos,1.93,1.78,Sim
+0,26/01,21:10,Fluminense,Boavista-RJ,Resultado Final,1.32,4.90,Total de Gols Mais/Menos,1.78,1.93,Sim
+0,28/01,15:30,Nova Iguaçu,Bangu,Resultado Final,2.82,2.77,Total de Gols Mais/Menos,2.42,1.50,Sim
+0,25/01,20:30,Santo André,Botafogo-SP,AO VIVO,Resultado Final,2.47,5.10,+,-,66
+0,25/01,21:35,Santos,Água Santa,Resultado Final,1.47,3.95,Total de Gols Mais/Menos,2.12,1.65,Sim
+0,26/01,15:30,EC Sao Bento,Inter de Limeira,Resultado Final,2.45,2.95,Total de Gols Mais/Menos,2.50,1.47,Sim
+0,26/01,19:30,Mirassol,São Bernardo,Resultado Final,1.98,3.15,Total de Gols Mais/Menos,2.27,1.57,Sim
+0,26/01,21:30,São Paulo,Portuguesa Desportos,Resultado Final,1.39,4.25,Total de Gols Mais/Menos,2.05,1.70,Sim
+0,28/01,18:30,Santos,Ferroviária,Resultado Final,1.65,3.55,Total de Gols Mais/Menos,2.20,1.60,Sim
+0,28/01,20:00,Bragantino,Santo André,Resultado Final,1.45,4.15,Total de Gols Mais/Menos,2.05,1.70,Sim
+0,28/01,20:40,Botafogo-SP,Guarani-SP,Resultado Final,2.27,2.95,Total de Gols Mais/Menos,2.42,1.50,Sim
+0,29/01,15:00,Água Santa,Portuguesa Desportos,Resultado Final,2.18,3.00,Total de Gols Mais/Menos,2.50,1.47,Sim
+0,29/01,16:00,Inter de Limeira,Ituano,Resultado Final,2.95,2.85,Total de Gols Mais/Menos,2.60,1.44,Sim
+0,29/01,16:00,São Bernardo,EC Sao Bento,Resultado Final,1.82,3.30,Total de Gols Mais/Menos,2.42,1.50,Sim
+0,29/01,18:30,São Paulo,Corinthians,Resultado Final,2.25,3.10,Total de Gols Mais/Menos,2.42,1.57,Sim
+0,28/01,10:30,Cruzeiro,Athletic Club MG,Resultado Final,1.35,4.55,Total de Gols Mais/Menos,1.93,1.78,Sim
+0,28/01,16:00,Caldense,Esporte Clube Democrata,Resultado Final,1.91,3.40,Total de Gols Mais/Menos,2.42,1.50,Sim
+0,28/01,16:00,Democrata SL,Pouso Alegre MG,Resultado Final,2.57,2.92,Total de Gols Mais/Menos,2.55,1.45,Sim
+0,29/01,11:00,Tombense,Atlético-MG,Resultado Final,5.90,4.45,Total de Gols Mais/Menos,2.12,1.65,Sim
+0,29/01,18:30,América-MG,Villa Nova AC MG,Resultado Final,1.42,4.30,Total de Gols Mais/Menos,2.02,1.72,Sim
+0,25/01,21:30,Grêmio,Brasil de Pelotas,AO VIVO,Resultado Final,1.16,19.50,+,-,Ambas equipes Marcam
+0,26/01,19:00,Ypiranga-RS,Novo Hamburgo,Resultado Final,1.85,3.20,Total de Gols Mais/Menos,2.42,1.50,Sim
+0,26/01,19:00,São José-RS,Caxias,Resultado Final,2.32,2.95,Total de Gols Mais/Menos,2.32,1.53,Sim
+0,26/01,20:30,Aimoré,CE Bento Goncalves RS,Resultado Final,2.22,3.20,Total de Gols Mais/Menos,2.52,1.47,Sim
