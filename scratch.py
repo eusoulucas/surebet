@@ -88,7 +88,6 @@ def sporting_bet(url):
     df_aux = pd.DataFrame()
     aux = []
     data = {}
-    dataG = {}
 
     # Print the infos
     for info in infos:
@@ -116,6 +115,40 @@ def sporting_bet(url):
     print(df)
     df.to_csv("dados/jogos_sportingbetBrasil.csv")
 
+def betfair(url):
+    # Navigate to the website you want to scrape
+    driver.get(url)
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+    # Wait for the element with xpath 'xpath_selector' to be present on the page
+    wait = WebDriverWait(driver, 10)
+
+    # Closing the popup as soon as it shows
+    sleep(5)
+    close_popup(wait, By.ID, 'onetrust-accept-btn-handler')
+    elements = driver.find_elements(By.XPATH, "//*[contains(@class, 'com-coupon-line-new-layout betbutton-layout avb-row avb-table')]")
+
+    # Extract the text of the elements
+    infos = [element.text for element in elements]
+    
+    df_aux = pd.DataFrame()
+    df = pd.DataFrame()
+
+    for info in infos:
+        inf = info.split('\n')   
+        print(inf) 
+        if len(inf) == 8:
+            inf.insert(6, 'Não sera')
+        df_aux = pd.DataFrame(inf)
+        df = pd.concat([df, df_aux], axis=1)#.pivot_table(values=[0,])
+
+    df = df.transpose()
+    df.rename(columns={0:'data_hora', 1:'maisq25', 2:'menosq25', 3:'casaganha',
+                        4:'empate', 5:'visitante_ganha', 6:'Ao vivo',7:'time_casa',8:'time_visitante'},
+                inplace=True)
+    print(df)
+    df.to_csv("dados/jogos_BetFair.csv")
+
 # Create a new instance of Firefox
 driver = webdriver.Firefox()
 
@@ -124,6 +157,9 @@ betano(url_one)
 
 url_two = "https://sports.sportingbet.com/pt-br/sports/futebol-4/aposta/brasil-33"
 sporting_bet(url_two)
+
+url_tree = "https://www.betfair.com/sport/football/brasil-paulista-serie-a1/2490975"
+betfair(url_tree)
 
 # Close the browser
 driver.quit()
