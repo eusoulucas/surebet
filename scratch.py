@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 import pandas as pd
@@ -30,38 +30,23 @@ def betano(url):
     df = pd.DataFrame()
     df_aux = pd.DataFrame()
     aux = []
-    data = {}
-    dataG = {}
 
     # Print the infos
     for info in infos:
         aux = info.split('\n')
-        print(aux)
-        try:
-            aux.remove("Em local neutro")
-        except:
-            pass
-        try:    
-            data = {
-                "data": aux[0],
-                "horario": aux[1],
-                "time_casa": aux[2],
-                "time_visitante": aux[3],
-                "odds_casa": aux[4],
-                "odds_empate": aux[5],
-                "odds_visitante": aux[6],
-                "total de gols+": aux[8],
-                "total de gols-": aux[10],
-                "ambas marcam sim": aux[12],
-                "ambas marcam não": aux[14],
-                }
-        except Exception as e:
-            print(e)
-
-        df_aux = pd.json_normalize(data)
-        df = pd.concat([df, df_aux])
+        if len(aux) > 16:
+            del aux[4]
+        df_aux = pd.DataFrame(aux)
+        df = pd.concat([df, df_aux], axis=1)
 
     # Printando o dataframe
+    df = df.transpose()
+    df.rename(columns={0:'data', 1:'hora', 2:'time_casa', 3:'time_visitante',
+                        4:'casa_ganha', 5:'empate', 6:'visitante_ganha',8:'mais25',
+                        10:'menos25', 12:'ambosmarcaMSIM', 14:'ambosmarcaMNAO'},
+                inplace=True)
+    df.drop([7,9,11,13,15], axis='columns', inplace=True)
+    
     print(df)
     df.to_csv("dados/jogos_betanoBrasil.csv")
 
@@ -89,10 +74,11 @@ def sporting_bet(url):
     aux = []
     data = {}
 
+    print(infos)
+
     # Print the infos
     for info in infos:
         aux = info.split('\n')
-
         try:    
             data = {
                 "time_casa": aux[0],
@@ -112,7 +98,7 @@ def sporting_bet(url):
         df = pd.concat([df, df_aux])
 
     # Printando o dataframe
-    print(df)
+    #print(df)
     df.to_csv("dados/jogos_sportingbetBrasil.csv")
 
 def betfair(url):
@@ -152,14 +138,22 @@ def betfair(url):
 # Create a new instance of Firefox
 driver = webdriver.Firefox()
 
-url_one = "https://br.betano.com/sport/futebol/ligas/10016o,193989r,10008o,181895o,16880r,16880o,16901r,16901o,16893r,16887r,16887o,16888o,16882o,16872r,183633r,16894r,17837r,17837o,17407r,200263r/"
-betano(url_one)
+urls_betano = ['https://br.betano.com/sport/futebol/brasil/campeonato-paulista-serie-a1/16901/',
+                'https://br.betano.com/sport/futebol/inglaterra/efl-cup/10215/',
+                'https://br.betano.com/sport/futebol/alemanha/bundesliga/216/',
+                'https://br.betano.com/sport/futebol/italia/serie-a/1635/',
+                'https://br.betano.com/sport/futebol/espanha/laliga/5/']
 
-url_two = "https://sports.sportingbet.com/pt-br/sports/futebol-4/aposta/brasil-33"
-sporting_bet(url_two)
+for url in urls_betano:
+    betano(url)
 
-url_tree = "https://www.betfair.com/sport/football/brasil-paulista-serie-a1/2490975"
-betfair(url_tree)
+urls_sb = ["https://sports.sportingbet.com/pt-br/sports/futebol-4/aposta/brasil-33"]
+for url in urls_sb:
+    sporting_bet(url)
+
+urls_bf = ["https://www.betfair.com/sport/football/brasil-paulista-serie-a1/2490975"]
+for url in urls_bf:
+    betfair(url)
 
 # Close the browser
 driver.quit()

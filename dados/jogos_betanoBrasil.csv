@@ -1,24 +1,6 @@
-,data,horario,time_casa,time_visitante,odds_casa,odds_empate,odds_visitante,total de gols+,total de gols-,ambas marcam sim,ambas marcam não
-0,28/01,16:30,Palmeiras,Flamengo,AO VIVO,3.00,2.75,+,-,Sim,Não
-0,28/01,15:30,Nova Iguaçu,Bangu,AO VIVO,Partida suspensa devido ao Tempo,1.29,18.50,3.95,1.23,2.52
-0,29/01,15:30,Resende,Portuguesa-RJ,2.65,3.00,2.72,2.42,1.50,2.05,1.70
-0,29/01,18:00,Fluminense,Botafogo-RJ,1.88,3.20,4.25,2.15,1.62,1.93,1.78
-0,29/01,20:15,Boavista-RJ,Madureira,2.37,3.10,2.95,2.32,1.55,2.00,1.72
-0,30/01,20:00,Vasco da Gama,Volta Redonda,1.53,3.60,6.60,2.25,1.57,2.30,1.55
-0,28/01,18:30,Santos,Ferroviária,1.62,3.60,5.30,2.05,1.70,2.05,1.70
-0,28/01,20:00,Bragantino,Santo André,1.60,3.80,5.30,1.93,1.78,1.95,1.75
-0,28/01,20:40,Botafogo-SP,Guarani-SP,2.37,2.90,3.20,2.50,1.47,2.05,1.70
-0,29/01,15:00,Água Santa,Portuguesa Desportos,2.25,3.05,3.25,2.42,1.50,2.05,1.70
-0,29/01,16:00,Inter de Limeira,Ituano,2.60,2.95,2.82,2.50,1.47,2.05,1.70
-0,29/01,16:00,São Bernardo,EC Sao Bento,1.98,3.10,3.95,2.42,1.50,2.12,1.65
-0,29/01,18:30,São Paulo,Corinthians,SO,2.20,3.25,+,-,Sim,Não
-0,01/02,21:35,Mirassol,Palmeiras,5.30,3.60,1.62,2.18,1.62,2.18,1.62
-0,28/01,16:00,Caldense,Esporte Clube Democrata,AO VIVO,1.21,4.75,+,-,Sim,Não
-0,28/01,16:00,Democrata SL,Pouso Alegre MG,AO VIVO,2.18,2.50,+,-,Sim,Não
-0,29/01,11:00,Tombense,Atlético-MG,7.90,4.15,1.40,2.27,1.57,2.75,1.40
-0,29/01,18:30,América-MG,Villa Nova AC MG,1.37,4.30,8.50,2.02,1.72,2.42,1.50
-0,28/01,16:30,Internacional,São Luiz-RS,AO VIVO,1.06,9.50,+,-,Sim,Não
-0,29/01,16:00,CE Bento Goncalves RS,Brasil de Pelotas,2.75,2.87,2.72,2.55,1.45,2.10,1.65
-0,29/01,16:00,EC Avenida RS,Ypiranga-RS,3.05,2.90,2.45,2.52,1.47,2.10,1.65
-0,29/01,19:00,Caxias,Aimoré,1.83,3.10,4.70,2.57,1.45,2.30,1.55
-0,29/01,20:30,São José-RS,Grêmio,4.10,3.55,1.82,2.18,1.62,2.10,1.65
+,data,hora,time_casa,time_visitante,casa_ganha,empate,visitante_ganha,mais25,menos25,ambosmarcaMSIM,ambosmarcaMNAO
+0,,,,,,,,,,,
+0,29/01,16:00,Inter de Limeira,Ituano,2.70,2.82,2.80,2.57,1.45,2.10,1.65
+0,29/01,16:00,São Bernardo,EC Sao Bento,2.00,3.10,3.85,2.42,1.50,2.12,1.65
+0,29/01,18:30,São Paulo,Corinthians,2.22,3.35,3.80,2.55,1.52,2.15,1.65
+0,01/02,21:35,Mirassol,Palmeiras,5.30,3.65,1.62,2.15,1.62,2.18,1.62
