@@ -8,6 +8,7 @@ import pandas as pd
 from time import sleep
 
 from threading import Thread
+from queue import Queue
 
 def close_popup(wait, by, path):
     # Closing the popup as soon as it shows
@@ -16,7 +17,7 @@ def close_popup(wait, by, path):
 
 def betano(url, drv):
     drv.get(url)
-    print(url)
+    #print(url)
     drv.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     
     # Wait for the element with xpath 'xpath_selector' to be present on the page
@@ -32,17 +33,17 @@ def betano(url, drv):
         infos = [element.text for element in elements]
         
         df = pd.DataFrame(infos)
-        print(df)
+        #print(df)
         df = df[0].str.split("\n", expand=True)
 
         df.rename(columns={0:'data', 1:'hora', 2:'time_casa', 3:'time_visitante', 4:'vitoria_casa',
                     5:'empate', 6:'visitante_ganha', 8:'maisq25', 10:'menosq25'},
                 inplace=True)
-        print(df.head(3))
         df.to_csv("dados/jogos_betanoBrasil.csv", mode='a', index=False, header=False)
         drv.quit()
     except Exception as e:
-        print(e)
+        drv.quit()
+        #print(e)
 '''
 def sporting_bet(url):
     # Navigate to the website you want to scrape
@@ -131,6 +132,7 @@ def betfair(url):
 # Create a new instance of Firefox
 #driver = webdriver.Firefox()
 
+q = Queue()
 threads = []
 urls_betano = []
 
@@ -140,17 +142,24 @@ with open('dados/sites.txt', 'r') as file:
 print(urls_betano)
 dfBetano = pd.DataFrame()
 
-def run_thread(url):
-    driver_bet = webdriver.Firefox()
-    betano(url, driver_bet)
+def run_thread():
+    while True:
+        url = q.get()
+        betano(url, webdriver.Firefox())
+        q.task_done()
 
-for url in urls_betano:
-    t = Thread(target=run_thread, args=(url,))
-    threads.append(t)
+for i in range(5):
+    t = Thread(target=run_thread)
+    t.daemon = True
     t.start()
 
-for t in threads:
-    t.join()
+for index, url in enumerate(urls_betano):
+    if int(index) != 0:
+        loading = (len(urls_betano)/int(index))*100
+        print(str(loading) + '%')
+    q.put(url)
+
+q.join()
 
 urls_sb = ["https://sports.sportingbet.com/pt-br/sports/futebol-4/aposta/brasil-33"]
 for url in urls_sb:
