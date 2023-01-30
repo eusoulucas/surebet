@@ -23747,3 +23747,13 @@ JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Pha
 JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
 JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
 JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+1675011972644	geckodriver	INFO	Listening on 127.0.0.1:52365
+1675011975695	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52366" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\lucad\\AppData\\Local\\Temp\\rust_mozprofileG5a51D"
+1675011976147	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1675011976154	Marionette	INFO	Listening on port 52375
+Read port: 52375
+WebDriver BiDi listening on ws://127.0.0.1:52366
+1675011976387	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\lucad\\AppData\\Local\\Temp\\rust_mozprofileG5a51D\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52366/devtools/browser/a763b320-1047-4038-9f5e-5a135f26fc97

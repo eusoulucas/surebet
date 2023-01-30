@@ -13,7 +13,6 @@ def close_popup(wait, by, path):
     close_popup.click()
 
 def betano(url):
-    # Navigate to the website you want to scrape
     driver.get(url)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
