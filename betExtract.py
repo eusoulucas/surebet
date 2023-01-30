@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium import webdriver
 
 import pandas as pd
 
@@ -10,8 +9,11 @@ from time import sleep
 def close_popup(by, path, drv):
     wait = WebDriverWait(drv, 10)
     # Closing the popup as soon as it shows
-    close_popup = wait.until(EC.presence_of_element_located((by, path)))
-    close_popup.click()
+    try:
+        close_popup = wait.until(EC.presence_of_element_located((by, path)))
+        close_popup.click()
+    except:
+        pass
 
 def betano(url, drv):
     drv.get(url)
@@ -20,10 +22,9 @@ def betano(url, drv):
     # Wait for the element with xpath 'xpath_selector' to be present on the page
     wait = WebDriverWait(drv, 30)
     df = pd.DataFrame()
-    try:
-        close_popup(By.XPATH, '/html/body/div[1]/div/section[2]/div[6]/div/div/div[1]/button', drv)
-    except:
-        pass
+    
+    close_popup(By.XPATH, '/html/body/div[1]/div/section[2]/div[6]/div/div/div[1]/button', drv)
+
     try:
         wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'events-list__grid__event')))
         elements = drv.find_elements(By.CLASS_NAME, 'events-list__grid__event')
@@ -74,7 +75,8 @@ def sporting_bet(url, drv):
                         4:'empate', 5:'visitante_ganha', 6:'maisMenosQ',7:'maisQ',8:'menosQ'},
                 inplace=True)
     print(df)
-    df.to_csv("dados/jogos_sportingbetBrasil.csv")
+    df.to_csv("dados/jogos_sportingbetBrasil.csv", mode='a', index=False, header=False)
+    drv.quit()
 
 def betfair(url, drv):
     # Navigate to the website you want to scrape
@@ -104,13 +106,6 @@ def betfair(url, drv):
                         4:'empate', 5:'visitante_ganha', 6:'Ao vivo',7:'time_casa',8:'time_visitante'},
                 inplace=True)
     print(df)
-    df.to_csv("dados/jogos_BetFair.csv")
-'''
+    df.to_csv("dados/jogos_BetFair.csv", mode='a', index=False, header=False)
+    drv.quit()
 
-url = 'https://sports.sportingbet.com/pt-br/sports/futebol-4/aposta/brasil-33'
-drv = webdriver.Firefox()
-
-sporting_bet(url, drv)
-
-drv.quit()
-'''
