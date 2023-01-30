@@ -14,24 +14,31 @@ def close_popup(wait, by, path):
 
 def betano(url):
     driver.get(url)
+    print(url)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-
     # Wait for the element with xpath 'xpath_selector' to be present on the page
     wait = WebDriverWait(driver, 10)
-    close_popup(wait, By.XPATH, '/html/body/div[1]/div/section[2]/div[6]/div/div/div[1]/button')
-    
-    elements = driver.find_elements(By.CLASS_NAME, 'events-list__grid__event')
-    infos = [element.text for element in elements]
+    df = pd.DataFrame()
+    try:
+        close_popup(wait, By.XPATH, '/html/body/div[1]/div/section[2]/div[6]/div/div/div[1]/button')
+        elements = driver.find_elements(By.CLASS_NAME, 'events-list__grid__event')
+        infos = [element.text for element in elements]
+        
+        #print(infos)
 
-    df = pd.DataFrame(infos)
-    df = df[0].str.split("\n", expand=True)
-    
-    df = df.drop([7,9,15,16], axis=1)
-    df.rename(columns={0:'data', 1:'hora', 2:'time_casa', 3:'time_visitante', 4:'vitoria_casa',
+        df = pd.DataFrame(infos)
+        df = df[0].str.split("\n", expand=True)
+
+        df.rename(columns={0:'data', 1:'hora', 2:'time_casa', 3:'time_visitante', 4:'vitoria_casa',
                  5:'empate', 6:'visitante_ganha', 8:'maisq25', 10:'menosq25'},
                 inplace=True)
+        df = df.drop([7, 9, 15, 16], axis=1)
+        df.to_csv("dados/betanoBrasil_test.csv", mode='a')
+    except Exception as e:
+        #print(e)
+        pass
 
-    df.to_csv("dados/jogos_betanoBrasil.csv")
+    return df
 
 def sporting_bet(url):
     # Navigate to the website you want to scrape
@@ -120,15 +127,19 @@ def betfair(url):
 # Create a new instance of Firefox
 driver = webdriver.Firefox()
 
-urls_betano = ['https://br.betano.com/sport/futebol/brasil/campeonato-paulista-serie-a1/16901/',
-                'https://br.betano.com/sport/futebol/inglaterra/efl-cup/10215/',
-                'https://br.betano.com/sport/futebol/alemanha/bundesliga/216/',
-                'https://br.betano.com/sport/futebol/italia/serie-a/1635/',
-                'https://br.betano.com/sport/futebol/espanha/laliga/5/']
+urls_betano = []
+
+with open('dados/sites.txt', 'r') as file:
+    for line in file:
+        urls_betano.append(line)
+print(urls_betano)
+dfBetano = pd.DataFrame()
 
 for url in urls_betano:
-    betano(url)
-    break
+    df_aux = betano(url)
+    dfBetano = pd.concat([dfBetano, df_aux ])
+
+dfBetano.to_csv("dados/jogos_betanoBrasil.csv")
 
 urls_sb = ["https://sports.sportingbet.com/pt-br/sports/futebol-4/aposta/brasil-33"]
 for url in urls_sb:
