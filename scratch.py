@@ -7,39 +7,43 @@ import pandas as pd
 
 from time import sleep
 
+from threading import Thread
+
 def close_popup(wait, by, path):
     # Closing the popup as soon as it shows
     close_popup = wait.until(EC.presence_of_element_located((by, path)))
     close_popup.click()
 
-def betano(url):
-    driver.get(url)
+def betano(url, drv):
+    drv.get(url)
     print(url)
-    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    drv.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    
     # Wait for the element with xpath 'xpath_selector' to be present on the page
-    wait = WebDriverWait(driver, 10)
+    wait = WebDriverWait(drv, 30)
     df = pd.DataFrame()
     try:
         close_popup(wait, By.XPATH, '/html/body/div[1]/div/section[2]/div[6]/div/div/div[1]/button')
-        elements = driver.find_elements(By.CLASS_NAME, 'events-list__grid__event')
+    except:
+        pass
+    try:
+        wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'events-list__grid__event')))
+        elements = drv.find_elements(By.CLASS_NAME, 'events-list__grid__event')
         infos = [element.text for element in elements]
         
-        #print(infos)
-
         df = pd.DataFrame(infos)
+        print(df)
         df = df[0].str.split("\n", expand=True)
 
         df.rename(columns={0:'data', 1:'hora', 2:'time_casa', 3:'time_visitante', 4:'vitoria_casa',
-                 5:'empate', 6:'visitante_ganha', 8:'maisq25', 10:'menosq25'},
+                    5:'empate', 6:'visitante_ganha', 8:'maisq25', 10:'menosq25'},
                 inplace=True)
-        df = df.drop([7, 9, 15, 16], axis=1)
-        df.to_csv("dados/betanoBrasil_test.csv", mode='a')
+        print(df.head(3))
+        df.to_csv("dados/jogos_betanoBrasil.csv", mode='a', index=False, header=False)
+        drv.quit()
     except Exception as e:
-        #print(e)
-        pass
-
-    return df
-
+        print(e)
+'''
 def sporting_bet(url):
     # Navigate to the website you want to scrape
     driver.get(url)
@@ -123,10 +127,11 @@ def betfair(url):
                 inplace=True)
     print(df)
     df.to_csv("dados/jogos_BetFair.csv")
-
+'''
 # Create a new instance of Firefox
-driver = webdriver.Firefox()
+#driver = webdriver.Firefox()
 
+threads = []
 urls_betano = []
 
 with open('dados/sites.txt', 'r') as file:
@@ -135,21 +140,27 @@ with open('dados/sites.txt', 'r') as file:
 print(urls_betano)
 dfBetano = pd.DataFrame()
 
-for url in urls_betano:
-    df_aux = betano(url)
-    dfBetano = pd.concat([dfBetano, df_aux ])
+def run_thread(url):
+    driver_bet = webdriver.Firefox()
+    betano(url, driver_bet)
 
-dfBetano.to_csv("dados/jogos_betanoBrasil.csv")
+for url in urls_betano:
+    t = Thread(target=run_thread, args=(url,))
+    threads.append(t)
+    t.start()
+
+for t in threads:
+    t.join()
 
 urls_sb = ["https://sports.sportingbet.com/pt-br/sports/futebol-4/aposta/brasil-33"]
 for url in urls_sb:
-    sporting_bet(url)
+    #sporting_bet(url)
     pass
 
 urls_bf = ["https://www.betfair.com/sport/football/brasil-paulista-serie-a1/2490975"]
 for url in urls_bf:
-    betfair(url)
+    #betfair(url)
     pass
 
 # Close the browser
-driver.quit()
+#driver.quit()
