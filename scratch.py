@@ -99,7 +99,6 @@ def betfair(url):
 
     # Extract the text of the elements
     infos = [element.text for element in elements]
-    
     df_aux = pd.DataFrame()
     df = pd.DataFrame()
 
