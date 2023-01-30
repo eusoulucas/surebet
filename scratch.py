@@ -20,33 +20,17 @@ def betano(url):
     wait = WebDriverWait(driver, 10)
     close_popup(wait, By.XPATH, '/html/body/div[1]/div/section[2]/div[6]/div/div/div[1]/button')
     
-    elements = driver.find_elements(By.CLASS_NAME, 'events-list__grid__event') # ta buscando apenas o texto do header
-
-    # Extract the text of the elements
+    elements = driver.find_elements(By.CLASS_NAME, 'events-list__grid__event')
     infos = [element.text for element in elements]
+
+    df = pd.DataFrame(infos)
+    df = df[0].str.split("\n", expand=True)
     
-    # Creating the variables
-    df = pd.DataFrame()
-    df_aux = pd.DataFrame()
-    aux = []
-
-    # Print the infos
-    for info in infos:
-        aux = info.split('\n')
-        if len(aux) > 16:
-            del aux[4]
-        df_aux = pd.DataFrame(aux)
-        df = pd.concat([df, df_aux], axis=1)
-
-    # Printando o dataframe
-    df = df.transpose()
-    df.rename(columns={0:'data', 1:'hora', 2:'time_casa', 3:'time_visitante',
-                        4:'casa_ganha', 5:'empate', 6:'visitante_ganha',8:'mais25',
-                        10:'menos25', 12:'ambosmarcaMSIM', 14:'ambosmarcaMNAO'},
+    df = df.drop([7,9,15,16], axis=1)
+    df.rename(columns={0:'data', 1:'hora', 2:'time_casa', 3:'time_visitante', 4:'vitoria_casa',
+                 5:'empate', 6:'visitante_ganha', 8:'maisq25', 10:'menosq25'},
                 inplace=True)
-    df.drop([7,9,11,13,15], axis='columns', inplace=True)
-    
-    print(df)
+
     df.to_csv("dados/jogos_betanoBrasil.csv")
 
 def sporting_bet(url):
@@ -145,14 +129,17 @@ urls_betano = ['https://br.betano.com/sport/futebol/brasil/campeonato-paulista-s
 
 for url in urls_betano:
     betano(url)
+    break
 
 urls_sb = ["https://sports.sportingbet.com/pt-br/sports/futebol-4/aposta/brasil-33"]
 for url in urls_sb:
     sporting_bet(url)
+    pass
 
 urls_bf = ["https://www.betfair.com/sport/football/brasil-paulista-serie-a1/2490975"]
 for url in urls_bf:
     betfair(url)
+    pass
 
 # Close the browser
 driver.quit()
