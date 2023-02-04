@@ -16,7 +16,7 @@ urls = ['https://br.betano.com/sport/futebol/',
         'https://sports.sportingbet.com/pt-br/sports/futebol-4',
         'https://www.betfair.com/sport/football?action=browseAll&selectedTabType=COMPETITIONS&modules=multipickavb@1050']
 
-getHref(urls, webdriver.Firefox())
+getHref(urls, webdriver.Firefox(options=options))
 
 urls_betano = []
 urls_betfair = []
@@ -24,15 +24,15 @@ urls_sb = []
 
 def run_betano(urls):
     for url in urls:
-        betano(url, webdriver.Firefox())
+        betano(url, webdriver.Firefox(options=options))
 
 def run_betfair(urls):
     for url in urls:
-        betfair(url, webdriver.Firefox())
+        betfair(url, webdriver.Firefox(options=options))
 
 def run_sb(urls):
     for url in urls:
-        sporting_bet(url, webdriver.Firefox())
+        sporting_bet(url, webdriver.Firefox(options=options))
 
 threads = []
 for arquivo in os.listdir('dados/sites'):
