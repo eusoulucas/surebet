@@ -1,22 +1,17 @@
 from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
-
-options = Options()
-options.binary_location = '/usr/bin/firefox'
 
 from getHref import getHref
 
 from betExtract import *
 
 import threading
-from queue import Queue
 import os
 
 urls = ['https://br.betano.com/sport/futebol/',
         'https://sports.sportingbet.com/pt-br/sports/futebol-4',
         'https://www.betfair.com/sport/football?action=browseAll&selectedTabType=COMPETITIONS&modules=multipickavb@1050']
 
-getHref(urls, webdriver.Firefox(options=options))
+getHref(urls, webdriver.Firefox())
 
 urls_betano = []
 urls_betfair = []
@@ -24,15 +19,15 @@ urls_sb = []
 
 def run_betano(urls):
     for url in urls:
-        betano(url, webdriver.Firefox(options=options))
+        betano(url, webdriver.Firefox())
 
 def run_betfair(urls):
     for url in urls:
-        betfair(url, webdriver.Firefox(options=options))
+        betfair(url, webdriver.Firefox())
 
 def run_sb(urls):
     for url in urls:
-        sporting_bet(url, webdriver.Firefox(options=options))
+        sporting_bet(url, webdriver.Firefox())
 
 threads = []
 for arquivo in os.listdir('dados/sites'):

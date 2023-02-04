@@ -19,7 +19,6 @@ def getHref(urls, driver):
                     try:
                         href = anchor.get_attribute("href")
                         if 'futebol' in href:
-                            print(href)
                             file.write(str(href) + "\n")
                         hrefs.append(href)
                     except:
@@ -37,7 +36,6 @@ def getHref(urls, driver):
                     try:
                         href = anchor.get_attribute("href")
                         if 'sports/futebol-4' in href:
-                            print(href) 
                             file.write(str(href) + "\n")
                             hrefs.append(href)
                     except:
@@ -55,7 +53,6 @@ def getHref(urls, driver):
                     try:
                         href = anchor.get_attribute("href")
                         if 'sport/football' in href:
-                            print(href)
                             file.write(str(href) + "\n")
                             hrefs.append(href)
                     except:

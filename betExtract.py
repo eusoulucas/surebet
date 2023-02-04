@@ -62,11 +62,11 @@ def sporting_bet(url, drv):
     df_aux = pd.DataFrame()
     aux = []
     data = {}
-    print(infos)
+    
 
     for info in infos:
         aux = info.split('\n')
-        print(aux) 
+         
         df_aux = pd.DataFrame(aux)
         df = pd.concat([df, df_aux], axis=1)
 
@@ -74,7 +74,7 @@ def sporting_bet(url, drv):
     df.rename(columns={0:'time_casa', 1:'time_visitante', 2:'dataHora', 3:'casaganha',
                         4:'empate', 5:'visitante_ganha', 6:'maisMenosQ',7:'maisQ',8:'menosQ'},
                 inplace=True)
-    print(df)
+    
     df.to_csv("dados/jogos_sportingbetBrasil.csv", mode='a', index=False, header=False)
     drv.quit()
 
@@ -95,7 +95,6 @@ def betfair(url, drv):
 
     for info in infos:
         inf = info.split('\n')   
-        print(inf) 
         if len(inf) == 8:
             inf.insert(6, 'Não sera')
         df_aux = pd.DataFrame(inf)
@@ -105,7 +104,6 @@ def betfair(url, drv):
     df.rename(columns={0:'data_hora', 1:'maisq25', 2:'menosq25', 3:'casaganha',
                         4:'empate', 5:'visitante_ganha', 6:'Ao vivo',7:'time_casa',8:'time_visitante'},
                 inplace=True)
-    print(df)
     df.to_csv("dados/jogos_BetFair.csv", mode='a', index=False, header=False)
     drv.quit()
 
