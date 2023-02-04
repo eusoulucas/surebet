@@ -62,7 +62,6 @@ python-dateutil==2.8.2
 python-Levenshtein==0.20.9
 python-linkedin==4.1
 pytz==2022.7
-pywin32==227
 pyzmq==24.0.1
 rapidfuzz==2.13.7
 requests==2.28.1
