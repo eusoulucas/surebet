@@ -1,4 +1,8 @@
 from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+
+options = Options()
+options.binary_location = '/usr/bin/firefox'
 
 from getHref import getHref
 
