@@ -4,7 +4,10 @@ from selenium.webdriver.support import expected_conditions as EC
 
 import pandas as pd
 
+from datetime import datetime
 from time import sleep
+
+now = datetime.now()
 
 def close_popup(by, path, drv):
     wait = WebDriverWait(drv, 10)
@@ -17,10 +20,9 @@ def close_popup(by, path, drv):
 
 def betano(url, drv):
     drv.get(url)
-    drv.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     
     # Wait for the element with xpath 'xpath_selector' to be present on the page
-    wait = WebDriverWait(drv, 30)
+    wait = WebDriverWait(drv, 20)
     df = pd.DataFrame()
     
     close_popup(By.XPATH, '/html/body/div[1]/div/section[2]/div[6]/div/div/div[1]/button', drv)
@@ -36,16 +38,16 @@ def betano(url, drv):
         df.rename(columns={0:'data', 1:'hora', 2:'time_casa', 3:'time_visitante', 4:'vitoria_casa',
                     5:'empate', 6:'visitante_ganha', 8:'maisq25', 10:'menosq25'},
                 inplace=True)
-        df.to_csv("dados/jogos_betanoBrasil.csv", mode='a', index=False, header=False)
+        df.to_csv("dados/jogos_betanoBrasil.csv", mode='a', index=False)
         drv.quit()
     except Exception as e:
         drv.quit()
         print(e)
+    print('BETANO '+ now.strftime("%Y-%m-%d_%H-%M-%S") +' EXTRAIDA')
 
 def sporting_bet(url, drv):
     # Navigate to the website you want to scrape
     drv.get(url)
-    drv.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
     # O SITE ATENDE BEM AO USO DE CSS_SELECTOR COMO LOCALIZADOR
     # Closing the popup as soon as it shows
@@ -75,13 +77,14 @@ def sporting_bet(url, drv):
                         4:'empate', 5:'visitante_ganha', 6:'maisMenosQ',7:'maisQ',8:'menosQ'},
                 inplace=True)
     
-    df.to_csv("dados/jogos_sportingbetBrasil.csv", mode='a', index=False, header=False)
+    df.to_csv("dados/jogos_sportingbetBrasil.csv", mode='a', index=False)
     drv.quit()
+
+    print('SPORTINGBET '+ now.strftime("%Y-%m-%d_%H-%M-%S") +' EXTRAIDA')
 
 def betfair(url, drv):
     # Navigate to the website you want to scrape
     drv.get(url)
-    drv.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
     # Closing the popup as soon as it shows
     sleep(5)
@@ -104,6 +107,8 @@ def betfair(url, drv):
     df.rename(columns={0:'data_hora', 1:'maisq25', 2:'menosq25', 3:'casaganha',
                         4:'empate', 5:'visitante_ganha', 6:'Ao vivo',7:'time_casa',8:'time_visitante'},
                 inplace=True)
-    df.to_csv("dados/jogos_BetFair.csv", mode='a', index=False, header=False)
+    df.to_csv("dados/jogos_BetFair.csv", mode='a', index=False)
     drv.quit()
+
+    print('BETFAIR '+ now.strftime("%Y-%m-%d_%H-%M-%S") +' EXTRAIDA')
 
