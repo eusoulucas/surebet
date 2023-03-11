@@ -1,8 +1,8 @@
 from selenium import webdriver
 
-from getHref import getHref
+from utils.getHref import getHref
 
-from betExtract import *
+from utils.betExtract import *
 
 import threading
 import os
